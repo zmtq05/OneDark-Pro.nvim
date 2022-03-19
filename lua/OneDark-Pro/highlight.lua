@@ -30,7 +30,7 @@ local hl = {
   --TermCursor = {},
   --TermCursorNC = {},
   ErrorMsg = { fg = color.error },
-  VertSplit = { fg = color.border },
+  WinSeparator = { fg = color.border },
   Folded = { bg = "#2F343E" },
   FoldColumn = { fg = "#97989B", bg = color.bg },
   SignColumn = { bg = color.bg },
