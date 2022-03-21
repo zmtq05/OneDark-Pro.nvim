@@ -21,25 +21,25 @@ local hl = {
   CursorColumn = { link = "CursorLine" },
   CursorLine = { bg = color.cursorline },
   Directory = { fg = color.fg },
-  -- TODO: Diff highlights
-  --DiffAdd = { bg = color.diffadd },
-  --DiffChange = {},
-  --DiffDelete = {},
+  DiffAdd = { bg = color.diff_add },
+  --DiffChange = {}, -- TODO
+  DiffDelete = { bg = color.diff_delele },
   DiffText = { bg = color.difftext },
   EndOfBuffer = { fg = color.bg },
   --TermCursor = {},
   --TermCursorNC = {},
   ErrorMsg = { fg = color.error },
+  VertSplit = { fg = color.border },
   WinSeparator = { fg = color.border },
   Folded = { bg = "#2F343E" },
   FoldColumn = { fg = "#97989B", bg = color.bg },
   SignColumn = { bg = color.bg },
   Search = { bg = "#3B4A64" },
-  IncSearch = { bg = "#42557B" }, -- editor.findMatchBackground
-  Substitute = { bg = "#42557B" },
+  IncSearch = { bg = color.match_find },
+  Substitute = { bg = color.match_find },
   LineNr = { fg = color.line_nr, bg = color.bg },
   CursorLineNr = { fg = color.cursorline_nr },
-  MatchParen = { bg = "#515A6B" }, -- editorBracketMatch.background
+  MatchParen = { bg = color.match_paren },
   --ModeMsg = {},
   --MsgArea = {},
   --MsgSeparator = {},
@@ -47,20 +47,23 @@ local hl = {
   NonText = { fg = color.gray },
   Normal = { fg = color.fg, bg = color.bg },
   NormalFloat = { bg = color.float_bg },
+  --NormalFloat = { bg = color.bg },
   FloatBorder = { fg = color.border, bg = color.float_bg },
+  --FloatBorder = { fg = color.border },
   Pmenu = { link = "NormalFloat" },
-  PmenuSel = { bg = "#2C313A" },
+  PmenuSel = { bg = color.selection_bg },
   PmenuSbar = { link = "Pmenu" },
   PmenuThumb = { bg = "#393F4B" },
   Question = { link = "Comment" },
-  QuickFixLine = { bg = "#323842" },
+  --QuickFixLine = { bg = "#323842" },
+  QuickFixLine = { link = "CursorLine" },
   --SpecialKey = {}, --??
   SpellBad = { sp = color.error, undercurl = true },
   SpellCap = { sp = color.blue, undercurl = true },
   SpellLocal = { sp = color.cyan, undercurl = true },
   SpellRare = { sp = color.purple, undercurl = true },
   StatusLine = { fg = color.statusline_fg, bg = color.statusline_bg },
-  StatusLineNC = { fg = "#495162", bg = color.statusline_bg },
+  StatusLineNC = { fg = color.statusline_nc_fg, bg = color.statusline_bg },
   TabLine = { fg = color.tab_inactive_fg, bg = color.tab_inactive_bg },
   TabLineFill = { bg = color.tabline_bg },
   TabLineSel = { fg = color.tab_active_fg, bg = color.tab_active_bg },
@@ -105,7 +108,7 @@ local hl = {
   --Structure = {},
   --Typedef = {},
 
-  --Special = { fg = color.yellow },
+  Special = { fg = color.yellow },
   --SpecialChar = { fg = color.cyan },
   --Tag = {},
   Delimiter = { fg = color.fg },
@@ -138,7 +141,7 @@ local hl = {
   -- LSP
   --
   LspReferenceText = { link = "LspReferenceRead" },
-  LspReferenceRead = { bg = "#474C59" --[[ #474D59? ]] }, -- editor.wordHighlightBackground #d2e0ff2f
+  LspReferenceRead = { bg = "#474D59" }, -- editor.wordHighlightBackground #d2e0ff2f
   LspReferenceWrite = { bg = "#3C4049" }, -- editor.wordHighlightStrongBackground #abb2bf26
   LspSignatureActiveParameter = { fg = color.blue, bold = true },
 
@@ -147,8 +150,9 @@ local hl = {
   --
 
   TSVariable = { fg = color.red },
+  --commentTSConstant = { fg = color.purple },
 
-  cTSFunction = { fg = color.blue, bold = true },
+  cTSFunction = { fg = color.blue },
   cTSType = { fg = color.yellow }, -- builtin(int, ..) -> purple / struct(Foo) -> yellow
   luaTSField = { fg = color.red },
   luaTSFuncBuiltin = { fg = color.cyan },
@@ -157,19 +161,26 @@ local hl = {
   luaTSPunctDelimiter = { fg = color.fg },
   luaTSPunctBracket = { fg = color.fg },
 
+  rustTSNamespace = { fg = color.yellow },
+  rustTSType = { fg = color.yellow },
+  rustTSTypeBuiltin = { link = "rustTSType" },
+
   --
   -- telescope
   --
   TelescopeNormal = { link = "NormalFloat" },
-  TelescopeSelection = { fg = "#F0F0F0", bg = "#323842" }, -- list.focus{Back,Fore}ground
-  TelescopeMatching = { fg = "#C5C5C5", bold = true }, -- list.highlightForeground
+  --TelescopeSelection = { fg = "#F0F0F0", bg = "#323842" }, -- list.focus{Back,Fore}ground
+  TelescopeSelection = { bg = color.selection_bg },
+  TelescopeMatching = { fg = color.match, bold = true },
 
   --
   -- Gitsigns
   --
-  GitSignsAdd = { fg = "#109868" }, -- editorGutter.addedBackground
-  GitSignsChange = { fg = "#948B60" }, -- editorGutter.modifiedBackground
-  GitSignsDelete = { fg = "#9A353D" }, -- editorGutter.deletedBackground
+  GitSignsAdd = { fg = color.git_sign_add },
+  GitSignsChange = { fg = color.git_sign_change },
+  GitSignsDelete = { fg = color.git_sign_delete },
+  GitSignsAddInline = { bg = color.git_diff_inline_add },
+  GitSignsDeleteInline = { bg = color.git_diff_inline_delete },
 }
 
 set_hl(hl)

@@ -1,10 +1,10 @@
 local M = {}
 
 function M.load()
-  if vim.g.colors_name ~= "OneDarkPro" then
+  --if vim.g.colors_name ~= "OneDarkPro" then
     vim.g.colors_name = "OneDarkPro"
     require("OneDark-Pro.highlight")
-  end
+  --end
 end
 
 return M

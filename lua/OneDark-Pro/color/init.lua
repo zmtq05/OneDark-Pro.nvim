@@ -18,16 +18,21 @@ local color = {
   purple = orig.purple,
   white  = orig.lightWhite,
 
+  -- https://github.com/Binaryify/OneDark-Pro/blob/master/src/themes/data/oneDarkPro.ts
+
   fg     = "#ABB2BF", -- editor.foreground
   bg     = "#282C34", -- editor.background
 
   -- extra color for highlights
-  -- https://github.com/Binaryify/OneDark-Pro/blob/master/src/themes/data/oneDarkPro.ts
 
   error = "#C24038", -- editorError.foreground
   warn  = "#D19A66", -- editorWarning.foreground
   info  = orig.malibu,
   hint  = orig.fountainBlue,
+
+  -- list.activeSelectionBackground
+  -- editorSuggestWidget.selectedBackground
+  selection_bg = "#2C313A",
 
   border = "#181A1F", -- editorGroup.border
   cursor_bg = "#528BFF", -- editorCursor.foreground
@@ -37,6 +42,9 @@ local color = {
   line_nr = "#495162", -- editorLineNumber.foreground
   cursorline_nr = "#ABB2BF", -- editorLineNumber.activeForeground
 
+  match = "#C5C5C5", -- list.highlightForeground
+  match_find = "#42557B", -- editor.findMatchBackground
+  match_paren = "#515A6B", -- editorBracketMatch.background
   whitespace = "#3B4048", -- editorWhitespace.foreground
   indentguide = "#3B4048", -- editorIndentGuide.background
   indentguide_active = "#606368", -- editorIndentGuide.activeBackground #c8c8c859
@@ -44,7 +52,9 @@ local color = {
   inlay_hint_fg = "#ABB2BF", -- editorInlayHint.foreground
   inlay_hint_bg = "#2C313C", -- editorInlayHint.background
 
-  difftext = "#1A4A59", -- #1A4B59? diffEditor.insertedTextBackground #00809b33
+  difftext = "#1A4B59", -- diffEditor.insertedTextBackground #00809b33
+  diff_add = "#203D49",
+  diff_delele = "#53232A",
 
   sidebar_bg = "#21252B", -- sideBar.background
   sidebar_fg = "#ABB2BF",
@@ -92,6 +102,13 @@ local color = {
   term_15 = "#D7DAE0",
 
   git_ignore_fg = "#636B78", -- gitDecoration.ignoredResourceForeground
+
+  git_sign_add = "#109868", -- editorGutter.addedBackground
+  git_sign_change = "#948B60", -- editorGutter.modifiedBackground
+  git_sign_delete = "#9A353D", -- editorGutter.deletedBackground
+
+  git_diff_inline_add = "#1A4B59", -- diffEditor.insertedTextBackground #00809b33
+  git_diff_inline_delete = "#751C22"
 }
 
 return color
